@@ -16,7 +16,7 @@
 // Lesser General Public License for more details.
 //
 
-package gutils
+package scgotils
 
 import (
 	b "bytes"
