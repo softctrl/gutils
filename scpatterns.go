@@ -26,8 +26,24 @@ import (
 	rgx "regexp"
 )
 
+//
+// This pattern will only matche a valid integer value.
+//
+var INTEGER_PATTERN = rgx.MustCompile("^\\d+$")
+
+//
+// This pattern will matches duplicated spaces occurencies.
+//
 var DUPLICATED_SPACES_PATTERN = rgx.MustCompile("\\s+")
 
+//
+// It will mathces only symbols there is not from a to Z, 0 to 9, ., space and (").
+//
 var NON_WORDS_PATTERN = rgx.MustCompile("[^a-zA-Z0-9-. \"]+")
 
-var IP_ADDRESS_PATTERN = rgx.MustCompile("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$")
+//
+// This pattern will matches only valis IPV6 Address.
+// Based on:
+// https://stackoverflow.com/questions/15875013/extract-ip-addresses-from-strings-using-regex
+//
+var IP_ADDRESS_PATTERN = rgx.MustCompile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$")
