@@ -45,7 +45,7 @@ const (
 var ALL_METHODS = Methods{GET, HEAD, POST, PUT, PATCH, DELETE, CONNECT, OPTIONS, TRACE}
 
 //
-//
+// MethodFromString returns a Method instance from an informed string.
 //
 func MethodFromString(__method string) Method {
 	return Method(str.ToUpper(__method))
