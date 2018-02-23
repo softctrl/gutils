@@ -168,3 +168,25 @@ var HTTP_507 = StatusCode{_Code: 507, _Desc: "Insufficient Storage", _RFC: "[RFC
 var HTTP_508 = StatusCode{_Code: 508, _Desc: "Loop Detected", _RFC: "[RFC5842]"}
 var HTTP_510 = StatusCode{_Code: 510, _Desc: "Not Extended", _RFC: "[RFC2774]"}
 var HTTP_511 = StatusCode{_Code: 511, _Desc: "Network Authentication Required", _RFC: "[RFC6585]"}
+
+//
+//
+//
+func StatusCodeRangeFromString(__value string) *StatusCodeRange {
+
+	var res StatusCodeRange
+	switch __value {
+	case "1xx":
+		res = HTTP_1xx
+	case "2xx":
+		res = HTTP_2xx
+	case "3xx":
+		res = HTTP_3xx
+	case "4xx":
+		res = HTTP_4xx
+	case "5xx":
+		res = HTTP_5xx
+	}
+	return &res
+
+}
