@@ -43,7 +43,7 @@ func IsIpAddress(__ip string) bool {
 // https://github.com/softctrl/sc-utils-java/blob/master/sc-utils-java/src/main/java/br/com/softctrl/utils/IpUtils.java
 func IntToIp(__ip int64) string {
 
-	return fmt.Sprint("%d.%d.%d.%d", (__ip >> 24 & 0xff), (__ip >> 16 & 0xff), (__ip >> 8 & 0xff), (__ip & 0xff))
+	return fmt.Sprintf("%d.%d.%d.%d", (__ip >> 24 & 0xff), (__ip >> 16 & 0xff), (__ip >> 8 & 0xff), (__ip & 0xff))
 
 }
 
