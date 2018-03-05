@@ -19,6 +19,7 @@
 package scgotils
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -37,8 +38,13 @@ func IsIpAddress(__ip string) bool {
 	return IP_ADDRESS_PATTERN.MatchString(__ip)
 }
 
-func IntToIp(__ip int) string {
-	return ""
+// IntToIp parses an Ip address on in format to his valid string representation.
+// Based on:
+// https://github.com/softctrl/sc-utils-java/blob/master/sc-utils-java/src/main/java/br/com/softctrl/utils/IpUtils.java
+func IntToIp(__ip int64) string {
+
+	return fmt.Sprint("%d.%d.%d.%d", (__ip >> 24 & 0xff), (__ip >> 16 & 0xff), (__ip >> 8 & 0xff), (__ip & 0xff))
+
 }
 
 //
