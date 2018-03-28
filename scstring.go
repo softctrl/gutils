@@ -29,6 +29,7 @@ import (
 )
 
 const (
+	JOINED_VALUES_FMT        = "%s"
 	JOINED_QUOTED_VALUES_FMT = "[%s]"
 	EMPTY_ARRAY              = "[]"
 	QUOTE                    = '"'
@@ -49,6 +50,26 @@ func JoinQuoted(__values []string, sep string) string {
 			_buff.WriteString(QuotedString(__values[_idx]))
 		}
 		return f.Sprintf(JOINED_QUOTED_VALUES_FMT, _buff.String())
+	} else {
+		return EMPTY_ARRAY
+	}
+
+}
+
+//
+//
+//
+func Join(__values []string, sep string) string {
+
+	_len := len(__values)
+	if _len > 0 {
+		var _buff b.Buffer
+		_buff.WriteString(__values[0])
+		for _idx := 1; _idx < _len; _idx++ {
+			_buff.WriteString(sep)
+			_buff.WriteString(__values[_idx])
+		}
+		return f.Sprintf(JOINED_VALUES_FMT, _buff.String())
 	} else {
 		return EMPTY_ARRAY
 	}
@@ -131,4 +152,18 @@ func RemoveNonWords(__value string) string {
 //
 func IsEmpty(__value string) bool {
 	return (len(str.TrimSpace(__value)) > 0)
+}
+
+// Contains inform if a value string is present into a slice of strings.
+func Contains(_slice []string, _value string) bool {
+
+	if len(_slice) > 0 {
+		for _, v := range _slice {
+			if v == _value {
+				return true
+			}
+		}
+	}
+	return false
+
 }
