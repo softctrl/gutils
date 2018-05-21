@@ -53,7 +53,7 @@ func Post(__url string) ([]byte, error) {
 }
 
 //
-// Performas a POST in a URL with a body.
+// Performs a POST in a URL with a body.
 //
 func PostBody(__url string, __body []byte) ([]byte, error) {
 
